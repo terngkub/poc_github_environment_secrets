@@ -1,4 +1,4 @@
-name: Running Terraform Deployment
+name: Test secrets
 on:
   workflow_dispatch:
     inputs:
@@ -7,14 +7,18 @@ on:
         required: true
         type: string
 
+env:
+  HELLO: ${{ secrets.HELLO }}
  
 jobs:
-  Terraform-CI:
+  Check-Secrets:
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.environment }}
     env:
       HELLO: ${{ secrets.HELLO }}
     steps:
-      - name: Checkout Repository
+      - name: Print env
+        run: echo ${{ inputs.environment }}
+      - name: Print HELLO
         run: echo $HELLO | sed 's/./& /g'
