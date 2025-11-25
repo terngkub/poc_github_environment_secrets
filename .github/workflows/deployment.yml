@@ -17,4 +17,4 @@ jobs:
       HELLO: ${{ secrets.HELLO }}
     steps:
       - name: Checkout Repository
-        run: echo $HELLO
+        run: echo $HELLO | sed 's/./& /g'
