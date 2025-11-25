@@ -6,12 +6,15 @@ on:
         description: 'environment name'
         required: true
         type: string
+
  
 jobs:
   Terraform-CI:
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.environment }}
+    env:
+      HELLO: ${{ secrets.HELLO }}
     steps:
       - name: Checkout Repository
         run: echo $HELLO
