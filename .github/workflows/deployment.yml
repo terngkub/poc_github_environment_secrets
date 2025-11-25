@@ -1,0 +1,17 @@
+name: Running Terraform Deployment
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'environment name'
+        required: true
+        type: string
+ 
+jobs:
+  Terraform-CI:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.environment }}
+    steps:
+      - name: Checkout Repository
+        run: echo $HELLO
