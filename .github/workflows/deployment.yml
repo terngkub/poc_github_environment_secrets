@@ -15,8 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.environment }}
-    env:
-      HELLO: ${{ secrets.NEW_HELLO }}
     steps:
       - name: Print env
         run: echo ${{ inputs.environment }} | sed 's/./& /g'
