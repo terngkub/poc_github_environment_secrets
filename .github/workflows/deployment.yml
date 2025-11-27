@@ -7,9 +7,6 @@ on:
         required: true
         type: string
 
-env:
-  HELLO: ${{ secrets.HELLO }}
- 
 jobs:
   Check-Secrets:
     runs-on: ubuntu-latest
